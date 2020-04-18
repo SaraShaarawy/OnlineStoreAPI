@@ -113,7 +113,7 @@ public class Service {
             dbPassword = (res.getString("password"));
         }
         if (email.equals(dbEmail) && password.equals(dbPassword)){
-            return "Your Login was Seccessful, Welcome!";
+            return "Your Login was Successful, Welcome!";
         }
         else{
             return "Invalid Data, Please Try Again";
