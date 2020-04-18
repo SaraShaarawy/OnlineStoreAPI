@@ -100,15 +100,11 @@ public class Service {
     @GET
     @Path("/login/{parameter1}/{parameter2}")
     
-    public String login(@PathParam("parameter1") String email, @PathParam("parameter2") String password) throws ClassNotFoundException, SQLException{
+    public String login(String email, String password) throws ClassNotFoundException, SQLException{
        
+        dbConnection();
         String dbEmail = "";
         String dbPassword = "";
-        String id = "software";
-        String pass = "12345";
-        Connection con = null;
-        Class.forName("org.apache.derby.jdbc.ClientDriver");
-        con = DriverManager.getConnection("jdbc:derby://localhost:1527/project",id,pass);
         Statement st = con.createStatement();
         String query = "select * from users where email = '" + email + "'and  password = '" + password+ "'";
         ResultSet res = st.executeQuery(query);
